@@ -1,0 +1,19 @@
+.img-photo {
+    background-color: #FFFFFF;
+    border-radius: 100%;
+}
+
+.div {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.img-arrow {
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}

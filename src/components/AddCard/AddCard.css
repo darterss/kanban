@@ -1,0 +1,25 @@
+.button {
+    font-size: 18px;
+    line-height: 21px;
+    color: #5E6C84;
+    cursor: pointer;
+    border: 0;
+    background: #EBECF0;
+}
+
+.input {
+    background: #FFFFFF;
+    border: 0;
+    border-radius: 5px;
+    word-wrap: anywhere;
+    padding: 7px 8px 6px 8px;
+    font-size: 18px;
+    line-height: 21px;
+    margin-bottom: 15px;
+}
+
+.push {
+    background: #0079BF;
+    color: #FFFFFF;
+    border-radius: 5px;
+}

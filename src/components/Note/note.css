@@ -1,0 +1,13 @@
+.div_note {
+    background: #EBECF0;
+    border-radius: 10px;
+    width: 25vw;
+    text-align: left;
+    padding: 12px;
+    font-size: 18px;
+    line-height: 21px;
+}
+
+.div_note:nth-child(-n+3) {
+    margin-right: 24px;
+}
