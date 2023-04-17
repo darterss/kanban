@@ -3,8 +3,6 @@ import './App.css';
 import UserIcon from "./components/UserIcon/userIcon";
 import Note from "./components/Note/note";
 
-
-
 function App() {
     const [dataBase, setDataBase] = useState([
         {
@@ -20,7 +18,9 @@ function App() {
                     name: 'Sprint bugfixxxxxx',
                     description: 'Fix all the bugsssssss'
                 }
-            ]
+            ],
+            disabled: false,
+            button_class: 'button'
         },
         {
             title: 'Ready',
@@ -29,8 +29,15 @@ function App() {
                     id: '12',
                     name: 'Second',
                     description: 'Fix second'
+                },
+                {
+                    id: '76',
+                    name: 'Second more',
+                    description: 'Fix second more'
                 }
-            ]
+            ],
+            disabled: false,
+            button_class: 'button'
         },
         {
             title: 'In Progress',
@@ -40,7 +47,9 @@ function App() {
                     name: 'third',
                     description: 'Fix third'
                 }
-            ]
+            ],
+            disabled: false,
+            button_class: 'button'
         },
         {
             title: 'Finished',
@@ -50,7 +59,9 @@ function App() {
                     name: 'Fourth',
                     description: 'Fix fourth'
                 }
-            ]
+            ],
+            disabled: false,
+            button_class: 'button'
         }
     ])
     localStorage.setItem('array', JSON.stringify(dataBase))
@@ -63,7 +74,7 @@ function App() {
             <main className={'main'}>
                 {JSON.parse(localStorage.getItem('array')).map((item,index) => {
                 return (
-                    <Note key={item.title} title={item.title} issue={item.issues} index={index}
+                    <Note key={item.title} issue={item.issues} index={index}
                           dataBase={dataBase} setDataBase={setDataBase}/>
                 )})}
             </main>
