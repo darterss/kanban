@@ -73,11 +73,11 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
         localStorage.setItem('array', JSON.stringify(dataBase))
     }
     return(
-        <form onSubmit={e => handleSubmit(e)}>
-            {showInput && <input className={'input'} onChange={e => handleChange(e)} autoFocus={true}/>}
-            {showSelect &&
-                <select onChange={e => handleSelect(e)}>
-                    <option disabled={true} selected={true}>select issue...</option>
+        <form key={index*10} onSubmit={e => handleSubmit(e)}>
+            {showInput && <input key={Math.round(Math.random()*1000)} className={'input'} onChange={e => handleChange(e)} autoFocus={true}/>}
+            {showSelect && //изменить key на timestamp////////////////////////////////////////////////////////////////////////////////////////////////////////
+                <select key={Math.round(Math.random()*100)} onChange={e => handleSelect(e)}>
+                    <option disabled={true} selected={true}  key={Math.round(Math.random()*1000)}>select issue...</option>
                         {
                         dataBase[index-1].issues.map((item, ind) => {
                             return(
@@ -87,7 +87,7 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
                                 </option>
                                 </>)})}
                 </select>}
-            <button className={dataBase[index].button_class}
+            <button key={Math.round(Math.random()*1000)} className={dataBase[index].button_class}
                     disabled={dataBase[index].disabled} ref={refButton}>{buttonText}</button>
         </form>
     )

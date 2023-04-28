@@ -30,6 +30,6 @@
 }
 
 .disabled {
-    cursor: none;
+    cursor: not-allowed;
     color: #CCCCCC;
 }

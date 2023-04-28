@@ -23,5 +23,23 @@
   padding: 20px 16px 32px 19px;
 }
 
+.footer {
+  font-size: 18px;
+}
+
+.footer_tasks {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_tasks div {
+  margin-right: 2em;
+}
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
 
 

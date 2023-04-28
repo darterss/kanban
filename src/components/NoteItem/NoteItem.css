@@ -1,7 +1,11 @@
-.div_note_item {
+.note_item {
     background: #FFFFFF;
     border-radius: 5px;
     margin: 15px 0;
     word-wrap: anywhere;
     padding: 7px 8px 6px 8px;
+}
+
+a {
+    color: inherit;
 }
