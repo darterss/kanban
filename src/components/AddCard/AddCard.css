@@ -5,6 +5,7 @@
     cursor: pointer;
     border: 0;
     background: #EBECF0;
+    display: block;
 }
 
 .input {
@@ -33,3 +34,4 @@
     cursor: not-allowed;
     color: #CCCCCC;
 }
+

@@ -1,4 +1,4 @@
-export default function generateID() {
+export function generateID() {
     const date = new Date();
     return(date.getTime())
 }

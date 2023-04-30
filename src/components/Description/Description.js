@@ -43,7 +43,7 @@ export default function Description({id, dataBase, setDataBase}){
                     <div className={'description_name'}>
                         {getIssue().name}
                     </div>
-                    <textarea type={'text'} className={'description_area'} defaultValue={getIssue().description}
+                    <textarea className={'description_area'} defaultValue={getIssue().description}
                               autoFocus={true} onChange={e => handleChange(e)} placeholder={placeholder}/></div>
                 <button className={'description_button'}>X</button>
             </form>

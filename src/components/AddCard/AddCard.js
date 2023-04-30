@@ -1,6 +1,6 @@
 import React, {useRef, useState} from "react";
 import "./AddCard.css"
-import generateID from "../../generateID";
+import { generateID } from "../../generateID";
 
 export default function AddCard( {issue, dataBase, setDataBase, index} ) {
     const [showInput, setShowInput] = useState(false);
@@ -75,7 +75,7 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
     return(
         <form key={index*10} onSubmit={e => handleSubmit(e)}>
             {showInput && <input key={generateID()} className={'input'}
-                                 placeholder={'New task title...'}onChange={e => handleChange(e)} autoFocus={true}/>}
+                                 placeholder={'New task title...'} onChange={e => handleChange(e)} autoFocus={true}/>}
             {showSelect &&
                 <select key={generateID()} onChange={e => handleSelect(e)}>
                     <option disabled={true} selected={true}  key={generateID()}>select issue...</option>

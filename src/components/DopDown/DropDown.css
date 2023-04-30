@@ -35,3 +35,9 @@ ul::after {
     border-radius: 5px;
     color: #FFFFFF;
 }
+
+@media only screen and (max-width: 650px) {
+    .ul {
+        padding: 0 2em 0  0;
+    }
+}

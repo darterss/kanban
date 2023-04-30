@@ -6,8 +6,20 @@
     padding: 12px;
     font-size: 18px;
     line-height: 21px;
+    height: fit-content;
 }
 
 .div_note:nth-child(-n+3) {
     margin-right: 24px;
+}
+
+@media only screen and (max-width: 650px) {
+    .div_note {
+        width: 70vw;
+        margin: 0 2em 50px 1em;
+    }
+
+    .div_note:nth-child(-n+3) {
+        margin-right: 2em;
+    }
 }

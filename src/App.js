@@ -4,8 +4,10 @@ import UserIcon from "./components/UserIcon/userIcon";
 import Note from "./components/Note/note";
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Description from "./components/Description/Description";
+import { useMediaQuery } from 'react-responsive'
 
 export default function App() {
+    const isDesktop = useMediaQuery({ query: '(max-width: 650px)' })
     const location = useLocation()
     const [dataBase, setDataBase] = useState([
         {
@@ -46,7 +48,7 @@ export default function App() {
     return (
         <div className="App">
             <header className="header">
-                Awesome Kanban Board
+                {!isDesktop && 'Awesome Kanban Board'}
                 <UserIcon />
             </header>
             <main className={'main'}>
@@ -72,7 +74,7 @@ export default function App() {
                     <div>Finished tasks: {dataBase[3].issues.length}</div>
                 </div>
                 <div>
-                    Kanban board by <a href={'mailto:darters@mail.ru'}>darters@mail.ru</a>, 2023
+                    Kanban board by <a className={'anchor'} href={'mailto:darters@mail.ru'}>darters@mail.ru</a>, 2023
                 </div>
             </footer>
         </div>
