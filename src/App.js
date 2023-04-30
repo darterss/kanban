@@ -2,61 +2,35 @@ import React, {useEffect, useState} from "react";
 import './App.css';
 import UserIcon from "./components/UserIcon/userIcon";
 import Note from "./components/Note/note";
-import { HashRouter, Route, Link, Routes, useLocation, Outlet, useParams } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Description from "./components/Description/Description";
 
-function App() {
-    const [description, setDescription] = useState('This task has no description')
+export default function App() {
     const location = useLocation()
-    //console.log('in App   ' + location)
     const [dataBase, setDataBase] = useState([
         {
             title: 'Backlog',
-            issues: [
-                {
-                    id: '1',
-                    name: 'Sprint bugfix',
-                    description: 'Fix all the bugs'
-                }
-            ],
+            issues: [],
             disabled: false,
             button_class: 'button'
         },
         {
             title: 'Ready',
-            issues: [
-                {
-                    id: '12',
-                    name: 'Second',
-                    description: 'Fix second'
-                }
-            ],
-            disabled: false,
-            button_class: 'button'
+            issues: [],
+            disabled: true,
+            button_class: 'button disabled'
         },
         {
             title: 'In Progress',
-            issues: [
-                {
-                    id: '123',
-                    name: 'third',
-                    description: 'Fix third'
-                }
-            ],
-            disabled: false,
-            button_class: 'button'
+            issues: [],
+            disabled: true,
+            button_class: 'button disabled'
         },
         {
             title: 'Finished',
-            issues: [
-                {
-                    id: '1234',
-                    name: 'Fourth',
-                    description: 'Fix fourth'
-                }
-            ],
-            disabled: false,
-            button_class: 'button'
+            issues: [],
+            disabled: true,
+            button_class: 'button disabled'
         }
     ])
     if (localStorage.getItem('array') == undefined)
@@ -77,17 +51,19 @@ function App() {
             </header>
             <main className={'main'}>
                 <Routes>
-                    <Route path='/123' element={<div>123</div>} />
-                    <Route path='' element={<>
-                        {JSON.parse(localStorage.getItem('array')).map((item,index) => {
-                        return (
-                    <Note key={item.title} issue={item.issues} index={index}
-                          dataBase={dataBase} setDataBase={setDataBase}/>
-                    )})}
-                    </>} />
+                    <Route path='' element=
+                        {<>
+                            {JSON.parse(localStorage.getItem('array')).map((item,index) => {
+                            return (
+                            <Note key={item.title} issue={item.issues} index={index}
+                                 dataBase={dataBase} setDataBase={setDataBase}/>
+                            )})}
+                        </>}
+                    />
                     <Route path={location.pathname}
-                           element={<Description description={description} id={location.pathname.substring(1)}
-                                                 setDescription={setDescription}/>} />
+                           element={<Description id={location.pathname.substring(1)}
+                                                 dataBase={dataBase} setDataBase={setDataBase}/>}
+                    />
                 </Routes>
             </main>
             <footer className={'footer'}>
@@ -102,5 +78,3 @@ function App() {
         </div>
   );
 }
-
-export default App;

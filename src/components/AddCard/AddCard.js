@@ -1,5 +1,6 @@
 import React, {useRef, useState} from "react";
 import "./AddCard.css"
+import generateID from "../../generateID";
 
 export default function AddCard( {issue, dataBase, setDataBase, index} ) {
     const [showInput, setShowInput] = useState(false);
@@ -21,11 +22,10 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
             newDataBase[index].button_class = 'button'
             setDataBase([...newDataBase])
             firstClick = true
-            const date = new Date()
             issue = [...issue, {
-                id: date.getTime(),
+                id: generateID(),
                 name: value,
-                description: 'description'
+                description: ''
             }]
             newDataBase[index].issues = [...issue]
             if (index < 3) {
@@ -74,10 +74,11 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
     }
     return(
         <form key={index*10} onSubmit={e => handleSubmit(e)}>
-            {showInput && <input key={Math.round(Math.random()*1000)} className={'input'} onChange={e => handleChange(e)} autoFocus={true}/>}
-            {showSelect && //изменить key на timestamp////////////////////////////////////////////////////////////////////////////////////////////////////////
-                <select key={Math.round(Math.random()*100)} onChange={e => handleSelect(e)}>
-                    <option disabled={true} selected={true}  key={Math.round(Math.random()*1000)}>select issue...</option>
+            {showInput && <input key={generateID()} className={'input'}
+                                 placeholder={'New task title...'}onChange={e => handleChange(e)} autoFocus={true}/>}
+            {showSelect &&
+                <select key={generateID()} onChange={e => handleSelect(e)}>
+                    <option disabled={true} selected={true}  key={generateID()}>select issue...</option>
                         {
                         dataBase[index-1].issues.map((item, ind) => {
                             return(

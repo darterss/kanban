@@ -1,0 +1,46 @@
+.description_div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #FFFFFF;
+    border: 0;
+    border-radius: 5px;
+}
+
+.description_form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.description_name {
+    font-size: 24px;
+    line-height: 28px;
+    text-align: left;
+    padding: 22px 0 22px 28px;;
+}
+
+.description_area {
+    width: 60vw;
+    height: 69vh;
+    border: none;
+    border-radius: 5px;
+    resize: none;
+    font-size: 18px;
+    line-height: 21px;
+    padding: 0 0 22px 28px;
+}
+
+.description_area:focus {
+    outline: none;
+}
+
+.description_button {
+    height: 4vh;
+    border: 0;
+    cursor: pointer;
+    background-color: #FFFFFF;
+    font-size: 20px;
+    margin-right: 8px;
+}

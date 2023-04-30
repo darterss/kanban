@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import './userIcon.css'
+import DropDown from "../DopDown/DropDown";
 
 export default function UserIcon(){
     const [imgArrow, setImgArrow] = useState(['img-arrow'])
+
     const handleClick = () => {
         if (!imgArrow.includes('rotate'))
             setImgArrow([...imgArrow, 'rotate'])
@@ -14,9 +16,13 @@ export default function UserIcon(){
     }
 
     return(
-        <div className={'div'} onClick={() => handleClick()}>
-            <img className={'img-photo'} alt={'user'} src={require('./user-avatar.png')}/>
-            <img className={imgArrow.join(' ')} alt={'arrow down'} src={require('./arrow-down.png')}/>
-        </div>
+        <>
+            <div className={'div'} onClick={() => handleClick()}>
+                <img className={'img-photo'} alt={'user'} src={require('./user-avatar.png')}/>
+                <img className={imgArrow.join(' ')} alt={'arrow down'} src={require('./arrow-down.png')}/>
+            </div>
+            {(imgArrow.includes('rotate')) && <DropDown />}
+        </>
+
     )
 }

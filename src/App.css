@@ -13,6 +13,7 @@
   font-size: 28px;
   line-height: 33px;
   padding: 0 20px;
+  white-space: nowrap;
 }
 
 .main {
