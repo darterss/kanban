@@ -51,7 +51,6 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
         }
     }
     function handleSelect (e) {
-        if (e.target.value === 'select value...') return
         const newDataBase = [...dataBase]
         const transferIssue = newDataBase[index-1].issues.splice(e.target.value, 1)
         if (newDataBase[index-1].issues.length === 0) {
@@ -73,22 +72,21 @@ export default function AddCard( {issue, dataBase, setDataBase, index} ) {
         localStorage.setItem('array', JSON.stringify(dataBase))
     }
     return(
-        <form key={index*10} onSubmit={e => handleSubmit(e)}>
-            {showInput && <input key={generateID()} className={'input'}
-                                 placeholder={'New task title...'} onChange={e => handleChange(e)} autoFocus={true}/>}
+        <form onSubmit={handleSubmit}>
+            {showInput && <input className={'input'} placeholder={'New task title...'}
+                                 onChange={handleChange} autoFocus={true}/>}
             {showSelect &&
-                <select key={generateID()} onChange={e => handleSelect(e)}>
-                    <option disabled={true} selected={true}  key={generateID()}>select issue...</option>
+                <select onChange={handleSelect} defaultValue={'default'} >
+                    <option disabled={true} value={'default'}>select issue...</option>
                         {
                         dataBase[index-1].issues.map((item, ind) => {
                             return(
-                                <>
-                                <option onClick={e => handleSelect(e)} key={item.id} value={ind}>
+                                <option onClick={handleSelect} key={item.id} value={ind}>
                                     {item.name}
                                 </option>
-                                </>)})}
+                                )})}
                 </select>}
-            <button key={Math.round(Math.random()*1000)} className={dataBase[index].button_class}
+            <button className={dataBase[index].button_class}
                     disabled={dataBase[index].disabled} ref={refButton}>{buttonText}</button>
         </form>
     )

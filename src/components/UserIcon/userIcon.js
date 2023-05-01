@@ -17,7 +17,7 @@ export default function UserIcon(){
 
     return(
         <>
-            <div className={'div'} onClick={() => handleClick()}>
+            <div className={'container'} onClick={handleClick}>
                 <img className={'img-photo'} alt={'user'} src={require('./user-avatar.png')}/>
                 <img className={imgArrow.join(' ')} alt={'arrow down'} src={require('./arrow-down.png')}/>
             </div>

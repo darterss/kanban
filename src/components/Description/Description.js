@@ -2,7 +2,7 @@ import React from "react";
 import {useNavigate} from "react-router-dom";
 import './Description.css'
 
-export default function Description({id, dataBase, setDataBase}){
+export default function Description( {id, dataBase, setDataBase} ){
     const navigate = useNavigate()
     let value = ''
     let placeholder = ''
@@ -38,13 +38,13 @@ export default function Description({id, dataBase, setDataBase}){
     return(
         <div className={'description_div'}>
 
-            <form className={'description_form'} onSubmit={e => handleSubmit(e)}>
+            <form className={'description_form'} onSubmit={handleSubmit}>
                 <div>
                     <div className={'description_name'}>
                         {getIssue().name}
                     </div>
                     <textarea className={'description_area'} defaultValue={getIssue().description}
-                              autoFocus={true} onChange={e => handleChange(e)} placeholder={placeholder}/></div>
+                              autoFocus={true} onChange={handleChange} placeholder={placeholder}/></div>
                 <button className={'description_button'}>X</button>
             </form>
         </div>

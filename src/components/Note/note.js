@@ -3,7 +3,6 @@ import './note.css'
 import NoteItem from "../NoteItem/NoteItem";
 import AddCard from "../AddCard/AddCard";
 export default function Note( {issue, dataBase, setDataBase, index} ) {
-
     return(
         <div className={'div_note'}>
             {dataBase[index].title}
